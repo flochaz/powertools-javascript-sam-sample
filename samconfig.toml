@@ -1,0 +1,10 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "powertools-javascript-sam-sample"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-1nvebtmwz7db4"
+s3_prefix = "powertools-javascript-sam-sample"
+region = "eu-west-1"
+capabilities = "CAPABILITY_IAM"
+image_repositories = []

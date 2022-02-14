@@ -24,6 +24,7 @@ Resources:
     Properties:
       Handler: src/handlers/get-all-items.getAllItemsHandler
       Runtime: nodejs14.x
+      Tracing: Active
       Architectures:
         - x86_64
       MemorySize: 128
@@ -52,6 +53,7 @@ Resources:
     Properties:
       Handler: src/handlers/get-by-id.getByIdHandler
       Runtime: nodejs14.x
+      Tracing: Active
       Architectures:
         - x86_64
       MemorySize: 128
@@ -80,6 +82,7 @@ Resources:
     Properties:
       Handler: src/handlers/put-item.putItemHandler
       Runtime: nodejs14.x
+      Tracing: Active
       Architectures:
         - x86_64
       MemorySize: 128
