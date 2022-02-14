@@ -52,7 +52,7 @@
     ```
     npm install @aws-lambda-powertools/tracer @aws-lambda-powertools/logger @aws-lambda-powertools/metrics
     ```
-1. Then the code is instrumented following the [official documentation](https://awslabs.github.io/aws-lambda-powertools-typescript/latest/)
+1. Then the code is instrumented following the [official documentation](https://awslabs.github.io/aws-lambda-powertools-typescript/latest/) , see https://github.com/flochaz/powertools-javascript-sam-sample/commit/e6ecf9d8a4cfa6a0db7a05e361c1fad7bedf2c1e commit for details 
 1. Everything can then be deployed with the following command:
 ```
 sam deploy --guided

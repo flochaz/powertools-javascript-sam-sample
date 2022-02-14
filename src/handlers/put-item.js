@@ -23,8 +23,9 @@ const tableName = process.env.SAMPLE_TABLE;
  * A simple example includes a HTTP post method to add one item to a DynamoDB table.
  */
 exports.putItemHandler = async (event, context) => {
-    const segment = tracer.getSegment(); // This is the facade segment (the one that is created by AWS Lambda)
+    const segment = tracer.getSegment(); 
     // Create subsegment for the function & set it as active
+    logger.info(`XRAY segment: ${JSON.stringify(segment)}`);
     const subsegment = segment.addNewSubsegment(`## ${process.env._HANDLER}`);
     tracer.setSegment(subsegment);
   
@@ -59,7 +60,7 @@ exports.putItemHandler = async (event, context) => {
     // ### Use AWS PowerTools metrics to create metrics into CloudWatch Metrics ###
     metrics.addMetric('PutItemCount', MetricUnits.Count, 1);
     metrics.publishStoredMetrics();
-    subsegment.close();
+
     const response = {
         statusCode: 200,
         body: JSON.stringify(body)
@@ -67,5 +68,9 @@ exports.putItemHandler = async (event, context) => {
 
     // All log statements are written to CloudWatch
     logger.info(`response from: ${event.path} statusCode: ${response.statusCode} body: ${response.body}`);
+    
+    subsegment.close();
+    tracer.setSegment(segment);
+
     return response;
 }
